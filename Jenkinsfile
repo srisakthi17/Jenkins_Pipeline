@@ -16,7 +16,7 @@ pipeline{
 					}
 		stage('Sonar Scan'){
 			steps{
-				withSonarQubeEnv(Sonarqube) {
+				withSonarQubeEnv("Sonarqube") {
 					sh "${tool("Sonar_7.1")}/bin/sonar-scanner -Dsonar.host.url=http://ec2-15-206-72-48.ap-south-1.compute.amazonaws.com:9000 \
 										-Dsonar.login=sqp_0209fb6bac04c46d59a63b3dec1b81585b51c62c \
 										-Dsonar.projectKey=MavenRepo \
