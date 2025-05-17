@@ -29,5 +29,10 @@ pipeline{
 				sh 'mvn -s settings.xml clean deploy'
 				}
 					}
+		stage('deployment'){ 
+			steps{
+				sh 'ansible-playbook -i inventory deployment_playbook.yml -e "build_number=$(BUILD_NUMBER)"'
+			}
+			}
 	}
 }
